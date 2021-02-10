@@ -5,50 +5,21 @@ import java.util.regex.Pattern;
 
 public class SyntaxObject {
 
-	private String ext;
-	private Map<String, EnumSyntaxType> regex;
-	private Pattern compiled;
+    public String ext;
+    public Map<String, EnumSyntaxType> regex;
+    public Pattern compiled;
 
-	public SyntaxObject(String e, Map<String, EnumSyntaxType> r) {
-		this.ext = e;
-		this.regex = r;
-		compile();
-	}
+    public SyntaxObject(String ext, Map<String, EnumSyntaxType> regex) {
+        this.ext = ext;
+        this.regex = regex;
+        compile();
+    }
 
-	public void compile() {
-		StringBuilder builder = new StringBuilder();
-		for (Map.Entry<String, EnumSyntaxType> e : this.regex.entrySet()) {
-			builder.append("|(?<").append(e.getValue().name()).append(">").append(e.getKey()).append(")");
-		}
-		this.compiled = Pattern.compile(builder.substring(1)); // Remove first "|"
-	}
-
-	public boolean hasRegexFor(EnumSyntaxType type) {
-		return regex.containsValue(type);
-	}
-
-	public String getExt() {
-		return ext;
-	}
-
-	public void setExt(String ext) {
-		this.ext = ext;
-	}
-
-	public Map<String, EnumSyntaxType> getRegex() {
-		return regex;
-	}
-
-	public void setRegex(Map<String, EnumSyntaxType> regex) {
-		this.regex = regex;
-	}
-
-	public Pattern getCompiled() {
-		return compiled;
-	}
-
-	public void setCompiled(Pattern compiled) {
-		this.compiled = compiled;
-	}
-
+    public void compile() {
+        final StringBuilder builder = new StringBuilder();
+        for (final Map.Entry<String, EnumSyntaxType> e : regex.entrySet()) {
+            builder.append("|(?<").append(e.getValue().name()).append(">").append(e.getKey()).append(")");
+        }
+        compiled = Pattern.compile(builder.substring(1)); // Remove first "|"
+    }
 }

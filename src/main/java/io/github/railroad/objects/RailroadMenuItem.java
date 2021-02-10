@@ -11,111 +11,111 @@ import javafx.scene.input.KeyCombination;
 
 public class RailroadMenuItem extends MenuItem {
 
-	private RailroadMenuItem(Builder propertiesIn) {
-		this.setAccelerator(propertiesIn.acceleratorKey);
-		this.setDisable(propertiesIn.defaultDisabled);
-		this.setGraphic(propertiesIn.graphic);
-		this.setId(propertiesIn.id);
-		this.setMnemonicParsing(propertiesIn.shouldParseText);
-		this.setOnAction(propertiesIn.action);
-		this.setOnMenuValidation(propertiesIn.menuValidation);
-		this.setParentMenu(propertiesIn.parent);
-		this.setParentPopup(propertiesIn.contextMenu);
-		this.setStyle(propertiesIn.style);
-		this.setText(propertiesIn.text);
-		this.setUserData(propertiesIn.customUserData);
-		this.setVisible(propertiesIn.defaultVisible);
-	}
+    private RailroadMenuItem(Builder propertiesIn) {
+        setAccelerator(propertiesIn.acceleratorKey);
+        setDisable(propertiesIn.defaultDisabled);
+        setGraphic(propertiesIn.graphic);
+        setId(propertiesIn.id);
+        setMnemonicParsing(propertiesIn.shouldParseText);
+        setOnAction(propertiesIn.action);
+        setOnMenuValidation(propertiesIn.menuValidation);
+        setParentMenu(propertiesIn.parent);
+        setParentPopup(propertiesIn.contextMenu);
+        setStyle(propertiesIn.style);
+        setText(propertiesIn.text);
+        setUserData(propertiesIn.customUserData);
+        setVisible(propertiesIn.defaultVisible);
+    }
 
-	public static class Builder {
-		private KeyCombination acceleratorKey;
-		private boolean defaultDisabled, shouldParseText = true, defaultVisible = true;
-		private ImageView graphic;
-		private String id, style, text;
-		private EventHandler<ActionEvent> action;
-		private EventHandler<Event> menuValidation;
-		private Menu parent;
-		private ContextMenu contextMenu;
-		private Object customUserData;
+    public static class Builder {
+        private KeyCombination acceleratorKey;
+        private boolean defaultDisabled, shouldParseText = true, defaultVisible = true;
+        private ImageView graphic;
+        private String id, style, text;
+        private EventHandler<ActionEvent> action;
+        private EventHandler<Event> menuValidation;
+        private Menu parent;
+        private ContextMenu contextMenu;
+        private Object customUserData;
 
-		private Builder(String textIn) {
-			this.text = textIn;
-		}
+        private Builder(String textIn) {
+            text = textIn;
+        }
 
-		public static Builder create(String textIn) {
-			return new Builder(textIn);
-		}
+        public static Builder create(String textIn) {
+            return new Builder(textIn);
+        }
 
-		public Builder setAccelerationKey(KeyCombination combination) {
-			this.acceleratorKey = combination;
-			return this;
-		}
+        public Builder setAccelerationKey(KeyCombination combination) {
+            acceleratorKey = combination;
+            return this;
+        }
 
-		public Builder disable() {
-			this.defaultDisabled = true;
-			return this;
-		}
+        public Builder disable() {
+            defaultDisabled = true;
+            return this;
+        }
 
-		public Builder setGraphic(ImageView graphicIn) {
-			this.graphic = graphicIn;
-			return this;
-		}
+        public Builder setGraphic(ImageView graphicIn) {
+            graphic = graphicIn;
+            return this;
+        }
 
-		public Builder setID(String idIn) {
-			this.id = idIn;
-			return this;
-		}
+        public Builder setID(String idIn) {
+            id = idIn;
+            return this;
+        }
 
-		public Builder parseText(boolean parse) {
-			this.shouldParseText = parse;
-			return this;
-		}
+        public Builder parseText(boolean parse) {
+            shouldParseText = parse;
+            return this;
+        }
 
-		public Builder setActionEvent(EventHandler<ActionEvent> event) {
-			this.action = event;
-			return this;
-		}
+        public Builder setActionEvent(EventHandler<ActionEvent> event) {
+            action = event;
+            return this;
+        }
 
-		public Builder setMenuValidation(EventHandler<Event> event) {
-			this.menuValidation = event;
-			return this;
-		}
+        public Builder setMenuValidation(EventHandler<Event> event) {
+            menuValidation = event;
+            return this;
+        }
 
-		public Builder setParentMenu(Menu parentIn) {
-			this.parent = parentIn;
-			return this;
-		}
+        public Builder setParentMenu(Menu parentIn) {
+            parent = parentIn;
+            return this;
+        }
 
-		public Builder setContextMenu(ContextMenu menu) {
-			this.contextMenu = menu;
-			return this;
-		}
+        public Builder setContextMenu(ContextMenu menu) {
+            contextMenu = menu;
+            return this;
+        }
 
-		public Builder setStyle(String styleIn) {
-			this.style = styleIn;
-			return this;
-		}
+        public Builder setStyle(String styleIn) {
+            style = styleIn;
+            return this;
+        }
 
-		public Builder setText(String textIn) {
-			this.text = textIn;
-			return this;
-		}
+        public Builder setText(String textIn) {
+            text = textIn;
+            return this;
+        }
 
-		public Builder setCustomUserData(Object data) {
-			this.customUserData = data;
-			return this;
-		}
+        public Builder setCustomUserData(Object data) {
+            customUserData = data;
+            return this;
+        }
 
-		public Builder setVisible(boolean visible) {
-			this.defaultVisible = visible;
-			return this;
-		}
+        public Builder setVisible(boolean visible) {
+            defaultVisible = visible;
+            return this;
+        }
 
-		public RailroadMenuItem build() {
-			if (this.id == null) {
-				this.id = this.text;
-			}
-			return new RailroadMenuItem(this);
-		}
-	}
+        public RailroadMenuItem build() {
+            if (id == null) {
+                id = text;
+            }
+            return new RailroadMenuItem(this);
+        }
+    }
 }

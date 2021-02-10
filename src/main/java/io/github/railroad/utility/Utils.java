@@ -1,22 +1,9 @@
 package io.github.railroad.utility;
 
-public class Utils {
+public interface Utils {
+    String OS = System.getProperty("os.name").toUpperCase();
 
-	private static final String OS = System.getProperty("os.name").toUpperCase();
-
-	public static String getOSName() {
-		return OS;
-	}
-
-	public static boolean isWindows() {
-		return OS.contains("WIN");
-	}
-
-	public static boolean isMac() {
-		return OS.contains("MAC");
-	}
-
-	public static boolean isUnix() {
-		return OS.contains("NIX") || OS.contains("NUX") || OS.contains("AIX");
-	}
+    static boolean windows() { return OS.contains("WIN"); }
+    static boolean mac() { return OS.contains("MAC"); }
+    static boolean unix() { return OS.contains("NIX") || OS.contains("NUX") || OS.contains("AIX"); }
 }

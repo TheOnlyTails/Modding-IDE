@@ -24,9 +24,9 @@ public class UIUtils {
     }
 
     public static Button createButton(String text, EventHandler<ActionEvent> event) {
-        Button btn = new Button(text);
-        btn.setOnAction(event);
-        return btn;
+        final Button button = new Button(text);
+        button.setOnAction(event);
+        return button;
     }
 
     public static ImageView createMenuGraphics(String imagePath) {
@@ -34,9 +34,9 @@ public class UIUtils {
     }
 
     // TODO: Add some sort of config for these logo files.
-    public static Image[] getIcons(Image[] icons) { // Return value never used
-        InputStream logo16 = Railroad.class.getResourceAsStream("/assets/img/logo16.png");
-        InputStream logo32 = Railroad.class.getResourceAsStream("/assets/img/logo32.png");
+    public static void getIcons(Image[] icons) { // Return value never used
+        final InputStream logo16 = Railroad.class.getResourceAsStream("/assets/img/logo16.png");
+        final InputStream logo32 = Railroad.class.getResourceAsStream("/assets/img/logo32.png");
         try {
             icons[0] = new Image(logo16);
             icons[1] = new Image(logo32);
@@ -45,6 +45,5 @@ public class UIUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return icons;
     }
 }
